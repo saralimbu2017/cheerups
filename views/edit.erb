@@ -1,0 +1,25 @@
+<form action="/activities/<%= @activity.id%>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <label for="">Name</label>
+  <input type="text" name="name" value="<%= @activity.name%>"> <br>
+  <label for="">Description</label>
+  <textarea name="description" id="" cols="30" rows="10" value="<%= @activity.description%>"></textarea><br>
+  <label for="">Image</label>
+  <input type="text" name="image_url" value="<%= @activity.image_url%>"><br>
+  <label for="">Image</label>
+  <select name = "category"> Category
+  <option value="1">Charity</option>
+  <option value="2">Health</option>
+  <option value="3">Cause</option>
+  <option value="4">Entertainment</option>
+  </select><br>
+  <label for="">Location</label>
+  <input type="text" name="location" value="<%= @activity.location%>"> <br>
+  
+  <label for="">Date</label>
+  <input type="text" name="date" value="<%=@activity.date%>"><br>
+  <label for="">Time</label>
+  <input type="text" name="time" value="<%= @activity.time%>">(HH:MM:SS)<br> 
+
+  <button>Update</button>
+</form>

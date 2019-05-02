@@ -2,11 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World</title>
+  <title>Cheerups</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
 <body>
+  <%if logged_in?%>
+    <form action="/session" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>Logout</button>
+    </form>
+    User_id: <%= session[:user_id]%>
+    logged in as <%= current_user.email%>
 
+    <form action="/activities/new" method="post">
+      <button>Post</button>
+    </form>
+
+  <%end%>
   <%= yield %>
 
 </body>

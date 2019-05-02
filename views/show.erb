@@ -1,0 +1,11 @@
+  <p><%= @activity.name %></p>
+  <img src="<%= @activity.image_url%>"> 
+  <p><%= @activity.description %></p>
+  <p><a href="/activities/<%= @activity.id%>/edit"> Edit</p>
+
+  <form action="/activities/<%= @activity.id %>" method = "post">
+  <input type="hidden" name ="_method" value="delete">
+  <button>delete</button>
+  </form> 
+
+  
