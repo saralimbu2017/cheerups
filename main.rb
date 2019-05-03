@@ -6,6 +6,7 @@ require_relative 'models/activity'
 require_relative 'models/user'
 require_relative 'models/category'
 require_relative 'models/like'
+require_relative 'models/comment'
 require 'bcrypt'
 enable :sessions
 
@@ -63,7 +64,7 @@ post '/activities' do
   activity.date = params[:date]
   activity.time = params[:time]
   activity.user_id = session[:user_id]
-  activity.like_count = 0
+  # activity.like_count = 0
   activity.save
   redirect '/activities'
 end
@@ -141,23 +142,33 @@ delete '/session' do
 end
 
 put '/likes/:id' do 
-  activity_like = Like.where(user_id: session[:user_id], activity_id: params[:id])
+  # activity_like = Like.where(user_id: session[:user_id], activity_id: params[:id])
   # like = Like.find_by(user_id: )
   
-  if activity_like.size != 0 
-    redirect "/activities"
+  # if activity_like.size != 0 
+  #   redirect "/activities"
 
-  else
+  # else
   
-    activity = Activity.find(params[:id])
-    activity.like_count = activity.like_count + 1
-    activity.save
+    # activity = Activity.find(params[:id])
+    # activity.like_count = activity.like_count + 1
+    # activity.save
     like = Like.new
     like.user_id = session[:user_id]
     like.activity_id = activity.id
     like.save
     redirect "/activities"
-  end
+  # end
+end
+
+post '/comments' do 
+    comment = Comment.new
+    comment.content = params[:comment]
+    comment.user_id = session[:user_id]
+    comment.activity_id = params[:activity_id]
+    comment.save
+    redirect "/activities"
+  # end
 end
 
 

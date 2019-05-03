@@ -10,6 +10,9 @@
  
   display: none;
 }
+.form {
+  color: red;
+}
 </style>
 <body>
   <%if logged_in?%>
@@ -28,12 +31,17 @@
   <%= yield %>
 <%# <script src="../javascripts/application.js"> </script> %>
 <script>
-  var btnComment =  document.querySelector('.btn-comment');
-  var commentDiv = document.querySelector('.comment-Div');
-  var toogleCommentDiv = function() {
-    commentDiv.style.display = "block";
+  var activityDivs =  document.querySelectorAll('.activity-div');
+ 
+  var displayForm = function(event) {
+    console.log(event.target.childNodes);
   }
-  btnComment.addEventListener('click',toogleCommentDiv);
+  activityDivs.forEach(function(activityDiv){
+    var children = activityDiv.childNodes;
+    children[8].addEventListener('click',function(event) {
+      children[10].style.display = "block";
+    });
+  });
 </script>
 </body>
 </html>

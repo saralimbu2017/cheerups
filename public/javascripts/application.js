@@ -1,15 +1,19 @@
 
- 
-    var btnComment= document.querySelector('.btn-comment');
-    // newResetbtn.addEventListener('click',reset);
-    var x = document.getElementById("myDIV");
-    btnComment.addEventListener('click',commentDiv);
-    var commentDiv = function myFunction() {
-    
-    // if (x.style.display === "none") {
-    //   x.style.display = "block";
-    // } else {
-    //   x.style.display = "none";
-    // }
-    x.style.color = "red";
+  var commentBtn =  document.querySelectorAll('.btn-comment');
+  var commentDiv = document.querySelector('.comment-Div');
+  var toogleCommentDiv = function() {
+    commentDiv.style.display = "block";
   }
+  commentBtn.addEventListener('click',toogleCommentDiv);
+
+
+ 
+  // var commentBtns =  document.querySelectorAll('.btn-comment');
+  // var commentDiv = document.querySelectorAll('.comment-Div');
+  // var toogleCommentDiv = function() {
+  //   commentDiv.style.display = "block";
+  // }
+  // commentBtns.forEach(function(commentBtn){
+  //   commentBtn.addEventListener('click',toogleCommentDiv);
+  // });
+  // commentBtns.addEventListener('click',toogleCommentDiv);

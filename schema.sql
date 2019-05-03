@@ -9,8 +9,7 @@ create table activities(
   location TEXT,
   date DATE,
   time TIME,
-  user_id INTEGER,
-  like_count INTEGER
+  user_id INTEGER
 );
 
 create table categories(
@@ -34,6 +33,13 @@ create table users(
 
 create table likes(
   id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  activity_id INTEGER 
+);
+
+create table comments(
+  id SERIAL PRIMARY KEY,
+  content TEXT,
   user_id INTEGER,
   activity_id INTEGER 
 );

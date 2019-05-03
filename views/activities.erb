@@ -1,25 +1,27 @@
+
 <% @activities.each do |activity| %>
+<div class="activity-div" >
   <p>
     <a href="/activities/<%= activity.id%>"><%= activity.name %></a>
   </p>
   <p>
     <%= activity.description %>
-  <form action="/likes/<%= activity.id%>" method="post">
-    <input type="hidden" name="_method" value="put">
-    <input type="hidden" name="like" value="1">
-    <button>Like</button> 
-  </form> 
- </p>
- <p>
-<button class = "btn-comment" > comment </button>
-  <div class="comment-Div" >
-    <%# <form  method="post" >
-      <input type = "text" name="comment" value ="">
-      <button>Comment</button>
-    </form> %>
-    <p>sdsdsdf</p>
-  </div>
-  
+    <form action="/likes/<%= activity.id%>" method="post">
+      <input type="hidden" name="_method" value="put">
+      <input type="hidden" name="like" value="1">
+      <button>Like</button> 
+    </form> 
   </p>
+  <button class = "btn-comment" > comment </button>
+  <div class="comment-Div" >
+    <form  action="/comments" method="post" >
+      <input type = "text" name="comment" value ="">
+      <input type = "hidden" name="activity_id" value ="<%= activity.id%>">
+      <button>Comment</button>
+    </form>
+  </div>
+ 
+</div>
 <% end %>
+
 
