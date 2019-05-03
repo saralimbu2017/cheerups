@@ -9,7 +9,8 @@ create table activities(
   location TEXT,
   date DATE,
   time TIME,
-  user_id INTEGER
+  user_id INTEGER,
+  like_count INTEGER
 );
 
 create table categories(
@@ -29,6 +30,12 @@ create table users(
   suburb TEXT,
   state TEXT,
   country TEXT
+);
+
+create table likes(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER,
+  activity_id INTEGER 
 );
 
 

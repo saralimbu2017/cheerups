@@ -5,6 +5,12 @@
   <title>Cheerups</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
 </head>
+<style>
+.comment-Div {
+ 
+  display: none;
+}
+</style>
 <body>
   <%if logged_in?%>
     <form action="/session" method="post">
@@ -20,6 +26,14 @@
 
   <%end%>
   <%= yield %>
-
+<%# <script src="../javascripts/application.js"> </script> %>
+<script>
+  var btnComment =  document.querySelector('.btn-comment');
+  var commentDiv = document.querySelector('.comment-Div');
+  var toogleCommentDiv = function() {
+    commentDiv.style.display = "block";
+  }
+  btnComment.addEventListener('click',toogleCommentDiv);
+</script>
 </body>
 </html>

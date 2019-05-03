@@ -5,6 +5,7 @@ require_relative 'db_config'
 require_relative 'models/activity'
 require_relative 'models/user'
 require_relative 'models/category'
+require_relative 'models/like'
 require 'bcrypt'
 enable :sessions
 
@@ -29,6 +30,7 @@ end
 get '/activities' do
   @activities = Activity.all
   erb :activities
+  # erb :test
 end
 
 post '/activities/new' do
@@ -61,6 +63,7 @@ post '/activities' do
   activity.date = params[:date]
   activity.time = params[:time]
   activity.user_id = session[:user_id]
+  activity.like_count = 0
   activity.save
   redirect '/activities'
 end
@@ -69,17 +72,24 @@ put '/activities/:id' do
   #fetch existing quote from db
   #update properties to new user submit content
   #redirect to somewhere safe
-    activity = Activity.find(params[:id])
-    activity.name = params[:name]
-    activity.description = params[:description]
-    activity.image_url = params[:image_url]
-    activity.category_id = params[:category].to_i
-    activity.location = params[:location]
-    activity.date = params[:date]
-    activity.time = params[:time]
-    activity.user_id = session[:user_id]
-    activity.save
-    redirect "/activities/#{activity.id}"
+  activity = Activity.find(params[:id])
+  # if params[:like] 
+  #   activity.like = params[:like].to_i
+  # else
+    
+  # end
+
+  activity.name = params[:name]
+  activity.description = params[:description]
+  activity.image_url = params[:image_url]
+  activity.category_id = params[:category].to_i
+  activity.location = params[:location]
+  activity.date = params[:date]
+  activity.time = params[:time]
+  activity.user_id = session[:user_id]
+  # activity.like_count = 0
+  activity.save
+  redirect "/activities/#{activity.id}"
 end
 
 delete '/activities/:id' do #dangerous
@@ -129,6 +139,28 @@ delete '/session' do
   session[:user_id] = nil
   redirect "/login"
 end
+
+put '/likes/:id' do 
+  activity_like = Like.where(user_id: session[:user_id], activity_id: params[:id])
+  # like = Like.find_by(user_id: )
+  
+  if activity_like.size != 0 
+    redirect "/activities"
+
+  else
+  
+    activity = Activity.find(params[:id])
+    activity.like_count = activity.like_count + 1
+    activity.save
+    like = Like.new
+    like.user_id = session[:user_id]
+    like.activity_id = activity.id
+    like.save
+    redirect "/activities"
+  end
+end
+
+
 
 
 
