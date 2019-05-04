@@ -1,6 +1,9 @@
 <div class = "container">
     
   <% @quotes.each do |quote| %>
+    <%if Like.where(user_id: session[:user_id], quote_id: quote.id).size != 0  %>
+      <% hasLiked = true%>
+    <%end%>
     <div class="quote-div" >
       <%user = User.find_by(id: quote.user_id)%>
         <p class= 'user-intro'>
@@ -19,10 +22,14 @@
      
         <%# <p class="like-btn buttons"> %>
           <form action="/likes/<%= quote.id%>" method="post" class="like-btn buttons">
-            <input type="hidden" name="_method" value="put">
+            <%# <input type="hidden" name="_method" value="put"> %>
             <input type="hidden" name="like" value="1">
             <%# <button class="like-btn buttons">Like</button>  %>
-            <input type="image" src="images/heart1.svg" alt="Like" class="buttons">
+            <%if hasLiked%>
+              <input type="image" src="images/heart2.svg" alt="Like" class="buttons" disabled>
+            <% else%>
+              <input type="image" src="images/heart1.svg" alt="Like" class="buttons">
+            <%end%>
           </form> 
         <%# </p> %>
         <%# <button class = "comment-btn buttons" > comment </button> %>

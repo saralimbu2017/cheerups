@@ -143,23 +143,27 @@ delete '/session' do
   redirect "/login"
 end
 
-put '/likes/:id' do 
-  # activity_like = Like.where(user_id: session[:user_id], activity_id: params[:id])
-  # like = Like.find_by(user_id: )
-  
-  # if activity_like.size != 0 
-  #   redirect "/activities"
-
-  # else
+post '/likes/:id' do 
   
     # activity = Activity.find(params[:id])
-    # activity.like_count = activity.like_count + 1
-    # activity.save
+    quote = Quote.find(params[:id])
+    # image = Image.find(params[:id])
     like = Like.new
     like.user_id = session[:user_id]
-    like.activity_id = activity.id
+    # if activity
+    #   like.activity_id = activity.id
+    #   redirect "/activities"
+    # end
+    # if quote
+    like.quote_id  = quote.id
+    
+    # end
+    # if like
+    #   like.image_id = image.id
+    #   redirect "/images"
+    # end
     like.save
-    redirect "/activities"
+    redirect "/quotes"
   # end
 end
 

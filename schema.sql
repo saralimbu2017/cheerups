@@ -34,7 +34,9 @@ create table users(
 create table likes(
   id SERIAL PRIMARY KEY,
   user_id INTEGER,
-  activity_id INTEGER 
+  activity_id INTEGER,
+  quote_id INTEGER,
+  image_id INTEGER
 );
 
 create table comments(
