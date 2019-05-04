@@ -40,8 +40,18 @@ body {
   height: 1.25rem;
   width: 1.25rem;
 }
+.commentator_name {
+  font-weight: 900;
+}
 .comment {
   vertical-align: top;
+  color: rgb(66, 65, 65);
+  font-size: 17px;
+}
+
+.comment-Div {
+  border-top: 0.01rem solid rgb(172, 170, 170);
+  padding-top: 10px;
 }
 @media (max-width:30rem) {
   .quote-div {
@@ -75,7 +85,7 @@ body {
   .quote {
     /* background-color: aqua; */
     padding: 0px 1px 5px 5px;
-    border-bottom: 0.05rem solid  #61615f;
+    border-bottom: 0.01rem solid  rgb(172, 170, 170);
     margin-bottom: 6px;
   }
 
