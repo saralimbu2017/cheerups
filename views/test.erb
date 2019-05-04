@@ -26,7 +26,8 @@
             <input type="hidden" name="like" value="1">
             <%# <button class="like-btn buttons">Like</button>  %>
             <%if hasLiked%>
-              <input type="image" src="images/heart2.svg" alt="Like" class="buttons" disabled>
+              <%# <input type="hidden" name="like_status" value="1"> %>
+              <input type="image" src="images/heart2.svg" alt="Like" class="buttons">
             <% else%>
               <input type="image" src="images/heart1.svg" alt="Like" class="buttons">
             <%end%>

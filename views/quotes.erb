@@ -1,26 +1,63 @@
-
-<% @quotes.each do |quote| %>
-<div class="quote-div" >
-  <p>
-    <a href="/quotes/<%= quote.id%>"><%= quote.content %></a>
-  </p>
-  
-  <button class = "btn-comment" > comment </button>
-  <div class="comment-Div" > 
-  <%# :created_at => :desc %>
-  <% @comments = Comment.where(user_id: session[:user_id], quote_id: quote.id).order(:created_at => :desc).limit(3)%>
-  <% @comments.each do |comment| %> 
-    <p> <%=comment.content%> </p>
-  <%end%>
-    <form  action="/comments" method="post" >
-      <input type = "text" name="comment" value ="">
-      <input type = "hidden" name="quote_id" value ="<%= quote.id%>">
-      <%# <button>Comment</button> %>
-      <input type="submit" style="display:none"/>
-    </form>
-  </div>
- 
+<div class = "container">
+    
+  <% @quotes.each do |quote| %>
+    <%if Like.where(user_id: session[:user_id], quote_id: quote.id).size != 0  %>
+      <% hasLiked = true%>
+    <%end%>
+    <div class="quote-div" >
+      <%user = User.find_by(id: quote.user_id)%>
+        <p class= 'user-intro'>
+          <img src = "<%=user.image_url%>" class= "user_image">
+          <span id ="user-name"><%= user.name %></span>
+        </p> 
+      <div class="quote">
+        
+        <%# <p> %>
+          <%# <a href="/quotes/<%= quote.id%>
+          <p>"<%= quote.content %>"</p>
+          <%# </a> %> 
+        <%# </p> %>
+      </div>
+      <div class="features-div" >
+     
+        <%# <p class="like-btn buttons"> %>
+          <form action="/likes/<%= quote.id%>" method="post" class="like-btn buttons">
+            <%# <input type="hidden" name="_method" value="put"> %>
+            <input type="hidden" name="like" value="1">
+            <%# <button class="like-btn buttons">Like</button>  %>
+            <%if hasLiked%>
+              <%# <input type="hidden" name="like_status" value="1"> %>
+              <input type="image" src="images/heart2.svg" alt="Like" class="buttons">
+            <% else%>
+              <input type="image" src="images/heart1.svg" alt="Like" class="buttons">
+            <%end%>
+          </form> 
+        <%# </p> %>
+        <%# <button class = "comment-btn buttons" > comment </button> %>
+        <input type="image" src="images/comment.svg" alt="comment" class="buttons">
+        <div class="comment-Div" > 
+          <%# :created_at => :desc %>
+          <% @comments = Comment.where(user_id: session[:user_id], quote_id: quote.id).order(:created_at => :desc).limit(3)%>
+          <% @comments.each do |comment| %> 
+            <%commentator = User.find_by(id: comment.user_id)%>
+            <p> 
+              <%# <img src = "<%=commentator.image_url%>
+              <%# " class= "commentator_image">  %> 
+              <span class="commentator_name"><%=commentator.name.split[0]%> </span>
+              <span class="comment">
+                 <%=comment.content%> 
+              </span>
+            </p>
+          <%end%>
+          <form  action="/comments" method="post" >
+            <input type = "hidden" name="quote_id" value ="<%= quote.id%>">
+            <%# <button>Comment</button> %>
+            <input type = "text" name="content" value ="" size="40">
+            <input type="submit" style="display:none">
+          </form>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
-<% end %>
-
-
+  

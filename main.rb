@@ -148,21 +148,28 @@ post '/likes/:id' do
     # activity = Activity.find(params[:id])
     quote = Quote.find(params[:id])
     # image = Image.find(params[:id])
-    like = Like.new
-    like.user_id = session[:user_id]
-    # if activity
-    #   like.activity_id = activity.id
-    #   redirect "/activities"
-    # end
-    # if quote
-    like.quote_id  = quote.id
+    # like_status = params[:like_status]
     
+    # if like_status == 1
+    #   like = Like.where(user_id: session[:user_id], quote_id: quote.id)
+    #   like.delete()
+    # else
+      like = Like.new
+      like.user_id = session[:user_id]
+      # if activity
+      #   like.activity_id = activity.id
+      #   redirect "/activities"
+      # end
+      # if quote
+      like.quote_id  = quote.id
+      
+      # end
+      # if like
+      #   like.image_id = image.id
+      #   redirect "/images"
+      # end
+      like.save
     # end
-    # if like
-    #   like.image_id = image.id
-    #   redirect "/images"
-    # end
-    like.save
     redirect "/quotes"
   # end
 end
@@ -203,8 +210,7 @@ end
 get '/quotes' do
   @quotes = Quote.all
   
-  # erb :quotes
-  erb :test
+  erb :quotes
 end
 
 get '/quotes/:id' do
