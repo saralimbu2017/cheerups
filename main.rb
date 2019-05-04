@@ -20,6 +20,18 @@ helpers do
   def logged_in?
     !!current_user ##truthy
   end
+
+  # def user_quotes
+  #   quotes = Quote.All
+  # end
+
+  # def user_activities
+  #   activities = Activity.All
+  # end
+
+  # def user_images
+  #   images = Image.All
+  # end
 end
 
 after do
@@ -131,7 +143,8 @@ post '/session' do
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id  
     # redirect "/activities"
-    redirect "/quotes"
+    # redirect "/quotes"
+    redirect 'home'
   else
     redirect '/'
   end
@@ -256,4 +269,13 @@ delete '/images/:id' do #dangerous
   # # "Deleted"
   redirect '/images' #so redirect to somewhere else
 end
+
+get '/home' do
+  @quotes = Quote.order(:created_at => :desc).limit(6)
+  @images = Image.order(:created_at => :desc).limit(6)
+  @activities = Activity.order(:id => :desc).limit(5)
+  
+  erb :home
+end
+
 

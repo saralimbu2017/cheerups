@@ -43,7 +43,10 @@
             <p> 
               <%# <img src = "<%=commentator.image_url%>
               <%# " class= "commentator_image">  %> 
-              <span class="commentator_name"><%=commentator.name.split[0]%> </span>
+              <span class="commentator_name">
+                <%# <%=commentator.name.split[0]%>  
+                <%=commentator.name%> 
+              </span>
               <span class="comment">
                  <%=comment.content%> 
               </span>

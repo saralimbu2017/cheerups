@@ -4,36 +4,54 @@
   <meta charset="UTF-8">
   <title>Cheerups</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 <style>
 .comment-Div {
  
   display: none;
 }
+
 .form {
   color: red;
 }
+
 </style>
 <body>
+<header >
   <%if logged_in?%>
-    <form action="/session" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button>Logout</button>
-    </form>
-    User_id: <%= session[:user_id]%>
-    logged in as <%= current_user.email%>
-
-    <form action="/activities/new" method="post">
-      <button>Post</button>
-    </form>
-     <form action="/quotes/new" method="post">
-      <button>Post Quotes</button>
-    </form>
-     <form action="/images/new" method="post">
-      <button>Post Image</button>
-    </form>
-
+    
+    <%# User_id: <%= session[:user_id]%> 
+    <nav>
+      <div class="home">
+       <form action="/home"  class="account_holder">
+          <button class="home-btn">Home</button>
+        </form>
+      </div>
+      <div class="nav-menu">
+        <img src="<%=current_user.image_url%>" class="user_image account_holder">
+        <span id ="user-name" class="account_holder">
+          <%= current_user.name%>
+        </span>
+        
+        <form action="/quotes/new" method="post" class="account_holder">
+          <button resource-btn>Post Quotes</button>
+        </form>
+        <form action="/images/new" method="post" class="account_holder">
+          <button>Post Image</button>
+        </form>
+        <form action="/activities/new" method="post" class="account_holder">
+          <button>Post</button>
+        </form>
+        <form action="/session" method="post" class="account_holder logout-btn">
+          <input type="hidden" name="_method" value="delete">
+          <button>Logout</button>
+        </form>
+      </div>
+    </nav>
+    
   <%end%>
+</header>
   <%= yield %>
 <%# <script src="../javascripts/application.js"> </script> %>
 <%# <script>
@@ -61,6 +79,7 @@
       children[5].childNodes[5].style.display = "block";
     });
   });
+  $( ".content-resource" ).scrollLeft( 300 );
 </script>
 </body>
 </html>

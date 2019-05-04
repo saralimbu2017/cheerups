@@ -1,0 +1,46 @@
+<div class = "container">
+ 
+  <div class = "wrapper1">
+    <a href="/quotes">
+      <div class="content-resource quotes-section" >
+        <% @quotes.each do |quote| %>
+          <% @user = User.find_by(id: quote.user_id)%>
+          <div class="content-item">
+            <p class="quote-span">"<%=quote.content%>" <br>--<%=@user.name%> </p>
+          </div>
+        <%end%>
+      </div> 
+    </a>
+
+    <a href="/activities">
+      <div class="content-resource activities-section">
+        <% @activities.each do |activity| %>
+          <% user = User.find_by(id: activity.user_id)%>  
+          <div class="content-activity">
+            <p class="name">
+              <img src="<%= user.image_url%>" class="user_image">
+              <%=activity.name%>
+            </p>
+            <%=activity.description%>
+          </div>
+        <%end %>
+      </div>
+    </a>
+  </div>
+ <div class = "wrapper2">
+  <a href="/images"> 
+  <div class="content-resource2 images-section">
+    
+      <% @images.each do |image| %>
+        <div class="content-image">
+          <img src="<%=image.url %>" >
+        </div>
+      <% end %>
+  
+  </div>
+   </a> 
+  </div>
+</div>
+
+
+    

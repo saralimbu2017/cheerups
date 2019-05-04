@@ -6,6 +6,10 @@ body {
   background-color: #dee0e4;
   
 }
+header {
+  background-color: rgb(235, 139, 22);
+  margin-bottom: 10px;
+}
 
 .container {
   display: flex;
@@ -13,6 +17,87 @@ body {
   justify-content: center;
   /* background-color: aqua; */
 }
+
+.container a {
+  text-decoration:  none;
+  color: black;
+}
+
+nav {
+  display:flex;
+  background-color: bisque;
+}
+.home {
+  margin-left:5% ; 
+  width: 30%;
+
+}
+button.home-btn {
+  margin-top: 25px;
+}
+
+.nav-menu {
+  margin-left:30% ; 
+  width: 60%;
+
+}
+.account_holder {
+  display:inline-block;
+}
+
+.content-resource {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width:100%;
+  
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+ 
+}
+
+.quotes-section {
+  /* align-content: stretch; */
+  height: 25%;
+  /* height: 12rem; */
+}
+.activities-section {
+  align-content: stretch;
+}
+.wrapper1 {
+  width:45%;
+  margin-right: 20px;
+}
+.wrapper2 {
+  width:45%;
+  align-content: stretch;
+  height: 100%;
+  /* background-color: aqua; */
+}
+.content-resource2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 10rem;
+  background-color: white;
+  /* padding: 0.05rem 0.5rem 2rem 0.5rem; */
+  /* border: 0.05rem solid grey; */
+  border-radius: 0.5rem;
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  align-content: stretch;
+  height: 100%;
+}
+.content-resource2 a{
+  display: block;
+}
+
+/* .resource-btn {
+  background-color: blue;
+  margin-bottom: 0px;
+} */
 .user_image {
   border-radius: 50%;
   height: 2.5rem;
@@ -34,6 +119,56 @@ body {
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
 
+}
+.content-item {
+  width: 30%;
+  background-color: pink;
+  /* margin-bottom: 0.5rem; */
+  height:100px;
+  margin: 0.5rem 0.2rem 0.5rem 0.2rem;
+  border-radius: 5px;
+  padding-left: 10px;
+
+  /* text-align: center; */
+}
+.content-activity {
+  width: 100%;
+  background-color: #dbd6d7;
+  /* margin-bottom: 0.5rem; */
+  /* height:80px; */
+  margin: 0.5rem 0.2rem 0.5rem 0.2rem;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  align-content: stretch;
+}
+.content-activity p {
+  padding-bottom: 15px;
+  border-bottom: 0.15rem solid  rgb(172, 170, 170);
+}
+.content-image {
+  width: 40%;
+  /* background-color: #dbd6d7; */
+  /* margin-bottom: 0.5rem; */
+  height:145px;
+  margin: 0.5rem 1rem 0.5rem 0.2rem;
+  border-radius: 5px;
+  
+}
+.content-image img {
+  /* width: 165px;
+  height: 135px; */
+  width:97%;
+  height:95%;
+  padding-left: 5px;
+  margin-top:5px;
+  margin-bottom:5px;
+  border-radius: 5px;
+}
+.quote-span {
+  font-family: cursive;
+  font-size: 10px;
 }
 .buttons {
   display: inline-block;
