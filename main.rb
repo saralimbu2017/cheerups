@@ -130,7 +130,8 @@ post '/session' do
   user = User.find_by(email: params[:email])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id  
-    redirect "/activities"
+    # redirect "/activities"
+    redirect "/quotes"
   else
     redirect '/'
   end
@@ -164,10 +165,18 @@ end
 
 post '/comments' do 
     comment = Comment.new
-    comment.content = params[:comment]
+    comment.content = params[:content]
     comment.user_id = session[:user_id]
-    comment.activity_id = params[:activity_id]
-    comment.quote_id = params[:quote_id]
+    if params[:activity_id] 
+      comment.activity_id = params[:activity_id]
+    end
+    if params[:quote_id]
+      comment.quote_id = params[:quote_id]
+    end
+    if params[:image_id]
+      comment.image_id = params[:image_id]
+    end
+     
     comment.save
     redirect "/activities"
   # end
@@ -190,7 +199,8 @@ end
 get '/quotes' do
   @quotes = Quote.all
   
-  erb :quotes
+  # erb :quotes
+  erb :test
 end
 
 get '/quotes/:id' do

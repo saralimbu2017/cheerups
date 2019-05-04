@@ -36,7 +36,7 @@
   <%end%>
   <%= yield %>
 <%# <script src="../javascripts/application.js"> </script> %>
-<script>
+<%# <script>
   var activityDivs =  document.querySelectorAll('.activity-div');
  
   var displayForm = function(event) {
@@ -46,6 +46,19 @@
     var children = activityDiv.childNodes;
     children[8].addEventListener('click',function(event) {
       children[10].style.display = "block";
+    });
+  });
+</script> %>
+<script>
+  var commentDivs =  document.querySelectorAll('.quote-div');
+ 
+  var displayForm = function(event) {
+    console.log(event.target.childNodes);
+  }
+  commentDivs.forEach(function(commentDiv){
+    var children = commentDiv.childNodes;
+    children[5].childNodes[3].addEventListener('click',function(event) {
+      children[5].childNodes[5].style.display = "block";
     });
   });
 </script>
