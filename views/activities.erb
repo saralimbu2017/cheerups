@@ -13,11 +13,17 @@
     </form> 
   </p>
   <button class = "btn-comment" > comment </button>
-  <div class="comment-Div" >
+  <div class="comment-Div" > 
+    <%# :created_at => :desc %>
+    <% @comments = Comment.where(user_id: session[:user_id], activity_id: activity.id).order(:created_at => :desc).limit(3)%>
+    <% @comments.each do |comment| %> 
+      <p> <%=comment.content%> </p>
+    <%end%>
     <form  action="/comments" method="post" >
       <input type = "text" name="comment" value ="">
       <input type = "hidden" name="activity_id" value ="<%= activity.id%>">
-      <button>Comment</button>
+      <%# <button>Comment</button> %>
+      <input type="submit" style="display:none"/>
     </form>
   </div>
  

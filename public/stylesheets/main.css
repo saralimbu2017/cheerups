@@ -1,4 +1,7 @@
-.comment-Div {
-  color: red;
-  /* display: none; */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rosybrown;
 }

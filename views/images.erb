@@ -1,0 +1,26 @@
+
+<% @images.each do |image| %>
+<div class="image-div" >
+  <p>
+    <a href="/images/<%= image.id%>"><%= image.url %></a>
+  </p>
+  
+  <%# <button class = "btn-comment" > comment </button>
+  <div class="comment-Div" > 
+  <%# :created_at => :desc %>
+  <%# <% @images = Image.where(user_id: session[:user_id], image_id: image.id).order(:created_at => :desc).limit(3)%>
+  <%# <% @comments.each do |comment| %> 
+    <%# <p> <%=comment.content%> </p>
+  <%# <%end%> 
+    <%# <form  action="/comments" method="post" >
+      <input type = "text" name="comment" value ="">
+      <input type = "hidden" name="image_id" value ="<%= image.id%>">
+      <%# <button>Comment</button> %>
+      <%# <input type="submit" style="display:none"/>
+    </form>
+  </div> %> 
+ 
+</div>
+<% end %>
+
+

@@ -41,7 +41,23 @@ create table comments(
   id SERIAL PRIMARY KEY,
   content TEXT,
   user_id INTEGER,
-  activity_id INTEGER 
+  activity_id INTEGER,
+  quote_id INTEGER,
+  image_id INTEGER,
+  created_at DATE
 );
 
+create table quotes(
+  id SERIAL PRIMARY KEY,
+  content TEXT,
+  user_id INTEGER,
+  created_at DATE
+);
+
+create table images(
+  id SERIAL PRIMARY KEY,
+  url TEXT,
+  user_id INTEGER,
+  created_at DATE
+);
 

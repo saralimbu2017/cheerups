@@ -1,0 +1,16 @@
+<form action="/images" method="post">
+  
+  <label for="">Image Url</label>
+  <input type="text" name="url"> <br>
+  
+  <button>Post</button>
+</form>
+
+<% @images.each do |image| %>
+  <p>
+    <a href="/images/<%= image.id%>"><%= image.id %></a>
+  </p>
+  <p>
+    <%= image.url %>
+  </p>
+<% end %>

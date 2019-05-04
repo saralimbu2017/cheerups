@@ -1,0 +1,26 @@
+
+<% @quotes.each do |quote| %>
+<div class="quote-div" >
+  <p>
+    <a href="/quotes/<%= quote.id%>"><%= quote.content %></a>
+  </p>
+  
+  <button class = "btn-comment" > comment </button>
+  <div class="comment-Div" > 
+  <%# :created_at => :desc %>
+  <% @comments = Comment.where(user_id: session[:user_id], quote_id: quote.id).order(:created_at => :desc).limit(3)%>
+  <% @comments.each do |comment| %> 
+    <p> <%=comment.content%> </p>
+  <%end%>
+    <form  action="/comments" method="post" >
+      <input type = "text" name="comment" value ="">
+      <input type = "hidden" name="quote_id" value ="<%= quote.id%>">
+      <%# <button>Comment</button> %>
+      <input type="submit" style="display:none"/>
+    </form>
+  </div>
+ 
+</div>
+<% end %>
+
+

@@ -1,0 +1,16 @@
+<form action="/quotes" method="post">
+  
+  <label for="">Content</label>
+  <input type="text" name="content"> <br>
+  
+  <button>Post</button>
+</form>
+
+<% @quotes.each do |quote| %>
+  <p>
+    <a href="/quotes/<%= quote.id%>"><%= quote.id %></a>
+  </p>
+  <p>
+    <%= quote.content %>
+  </p>
+<% end %>

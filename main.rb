@@ -7,6 +7,8 @@ require_relative 'models/user'
 require_relative 'models/category'
 require_relative 'models/like'
 require_relative 'models/comment'
+require_relative 'models/quote'
+require_relative 'models/image'
 require 'bcrypt'
 enable :sessions
 
@@ -30,6 +32,7 @@ end
 
 get '/activities' do
   @activities = Activity.all
+  
   erb :activities
   # erb :test
 end
@@ -42,8 +45,6 @@ end
 
 get '/activities/:id' do
   @activity = Activity.find(params[:id])
-
-  # @comments = Comment.where(dish_id: @dish.id)
   erb :show
 end
 
@@ -166,17 +167,73 @@ post '/comments' do
     comment.content = params[:comment]
     comment.user_id = session[:user_id]
     comment.activity_id = params[:activity_id]
+    comment.quote_id = params[:quote_id]
     comment.save
     redirect "/activities"
   # end
 end
 
+post '/quotes/new' do
+  @quotes = Quote.where(user_id: session[:user_id])
 
+  erb :quote_new
+end
 
+post '/quotes' do
+  quote = Quote.new
+  quote.content = params[:content]
+  quote.user_id = session[:user_id]
+  quote.save
+  redirect '/quotes'
+end
 
+get '/quotes' do
+  @quotes = Quote.all
+  
+  erb :quotes
+end
 
+get '/quotes/:id' do
+  @quote = Quote.find(params[:id])
+  erb :show
+end
 
+delete '/quotes/:id' do #dangerous
+  @quote = Quote.find(params[:id])
+  @quote.delete #dangerous so redirect
+  # # "Deleted"
+  redirect '/activities' #so redirect to somewhere else
+end
 
+post '/images/new' do
+  @images = Image.where(user_id: session[:user_id])
 
+  erb :image_new
+end
 
+post '/images' do
+  image = Image.new
+  image.url = params[:url]
+  image.user_id = session[:user_id]
+  image.save
+  redirect '/images'
+end
+
+get '/images' do
+  @images = Image.all
+  
+  erb :images
+end
+
+get '/images/:id' do
+  @image = Image.find(params[:id])
+  erb :image_show
+end
+
+delete '/images/:id' do #dangerous
+  @image = Image.find(params[:id])
+  @image.delete #dangerous so redirect
+  # # "Deleted"
+  redirect '/images' #so redirect to somewhere else
+end
 

@@ -1,0 +1,10 @@
+  <p><%= @image.url %></p>
+  
+  <p><a href="/images/<%= @image.id%>/edit"> Edit</p>
+
+  <form action="/images/<%= @image.id %>" method = "post">
+    <input type="hidden" name ="_method" value="delete">
+    <button>delete</button>
+  </form> 
+
+  
