@@ -260,7 +260,7 @@ end
 
 get '/images/:id' do
   @image = Image.find(params[:id])
-  erb :image_show
+  erb :images_show
 end
 
 delete '/images/:id' do #dangerous
@@ -273,7 +273,7 @@ end
 get '/home' do
   @quotes = Quote.order(:created_at => :desc).limit(6)
   @images = Image.order(:created_at => :desc).limit(6)
-  @activities = Activity.order(:id => :desc).limit(5)
+  @activities = Activity.order(:id => :desc).limit(3)
   
   erb :home
 end
