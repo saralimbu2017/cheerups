@@ -1,7 +1,7 @@
 <div class = "container">
-    
+  <div class="quotes-wrapper">
   <% @quotes.each do |quote| %>
-    <%if Like.where(user_id: session[:user_id], quote_id: quote.id).size != 0  %>
+    <%if Like.where( quote_id: quote.id).size != 0  %>
       <% hasLiked = true%>
     <%end%>
     <div class="quote-div" >
@@ -40,27 +40,37 @@
           <% @comments = Comment.where(user_id: session[:user_id], quote_id: quote.id).order(:created_at => :desc).limit(3)%>
           <% @comments.each do |comment| %> 
             <%commentator = User.find_by(id: comment.user_id)%>
-            <p> 
-              <%# <img src = "<%=commentator.image_url%>
-              <%# " class= "commentator_image">  %> 
-              <span class="commentator_name">
-                <%# <%=commentator.name.split[0]%>  
-                <%=commentator.name%> 
-              </span>
+            <div class="comment-unit"> 
+              <img src = "<%=commentator.image_url%>" class= "commentator_image"> 
+              <%# <span class="commentator_name"> %>
+                 <%# <%=commentator.name.split[0]%>   
+                <%# <%=commentator.name%>  
+              <%# </span> %>
               <span class="comment">
                  <%=comment.content%> 
               </span>
-            </p>
+            </div>
           <%end%>
           <form  action="/comments" method="post" >
             <input type = "hidden" name="quote_id" value ="<%= quote.id%>">
             <%# <button>Comment</button> %>
-            <input type = "text" name="content" value ="" size="40">
+            <input type = "text" name="content" value ="" size="65" class="comment-input">
             <input type="submit" style="display:none">
           </form>
         </div>
       </div>
     </div>
   <% end %>
+  </div>
+  <div class="create-wrapper">
+    <div class="post-quotes">
+      <span >Create Quotes</span>
+      <form action="/quotes" method="post">
+        <%# <label for="">Content</label> %>
+        <textarea type="text" name="content" row="90" cols="48" placeholder="A witty quote!"> </textarea> <br>
+        <button>POST</button>
+      </form>
+    </div>
+  </div>
 </div>
   

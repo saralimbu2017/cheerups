@@ -9,6 +9,7 @@ require_relative 'models/like'
 require_relative 'models/comment'
 require_relative 'models/quote'
 require_relative 'models/image'
+require_relative 'models/honour'
 require 'bcrypt'
 enable :sessions
 
@@ -131,7 +132,8 @@ post '/users' do
   user.state = params[:state]
   user.country = params[:country]
   user.save
-  redirect '/activities'
+  # redirect '/activities'
+  redirect '/'
 end
 
 get '/login' do
@@ -153,7 +155,8 @@ end
 delete '/session' do
   # "delete the session"
   session[:user_id] = nil
-  redirect "/login"
+  # redirect "/login"
+  redirect "/"
 end
 
 post '/likes/:id' do 
@@ -278,4 +281,18 @@ get '/home' do
   erb :home
 end
 
+# def count_like
+  # @users = User.all
+  # @users.each do |user|
+  #   like = Like.where(user_id: user.id)
+  #   if like.size == 5
+  #     honour = Honour.new
+  #     honour.silver_badge = 1
+  #   end
 
+  # end
+#   likes = Like.where('quote_id IN (SELECT DISTINCT user_id FROM quotes WHERE quotes.user_id!=?)', 5)
+
+# end
+
+# count_like

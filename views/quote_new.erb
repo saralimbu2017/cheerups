@@ -1,15 +1,13 @@
 <form action="/quotes" method="post">
   
-  <label for="">Content</label>
-  <input type="text" name="content"> <br>
+  <%# <label for="">Content</label> %>
+  <textarea type="text" name="content" row="40" cols="50"> </textarea> <br>
   
   <button>Post</button>
 </form>
 
 <% @quotes.each do |quote| %>
-  <p>
-    <a href="/quotes/<%= quote.id%>"><%= quote.id %></a>
-  </p>
+
   <p>
     <%= quote.content %>
   </p>

@@ -12,4 +12,5 @@ require_relative 'models/comment'
 require_relative 'models/quote'
 require_relative 'models/comment'
 require_relative 'models/image'
+require_relative 'models/honour'
 binding.pry

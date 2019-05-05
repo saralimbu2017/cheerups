@@ -24,31 +24,48 @@
     <%# User_id: <%= session[:user_id]%> 
     <nav>
       <div class="home">
-       <form action="/home"  class="account_holder">
-          <button class="home-btn">Home</button>
-        </form>
-      </div>
-      <div class="nav-menu">
-        <img src="<%=current_user.image_url%>" class="user_image account_holder">
-        <span id ="user-name" class="account_holder">
-          <%= current_user.name%>
+        <span class="app">
+          <img src="images/icon.png">
+          Cheerups!!
         </span>
-        
-        <form action="/quotes/new" method="post" class="account_holder">
-          <button resource-btn>Post Quotes</button>
-        </form>
-        <form action="/images/new" method="post" class="account_holder">
-          <button>Post Image</button>
-        </form>
-        <form action="/activities/new" method="post" class="account_holder">
-          <button>Post</button>
-        </form>
-        <form action="/session" method="post" class="account_holder logout-btn">
-          <input type="hidden" name="_method" value="delete">
-          <button>Logout</button>
-        </form>
+       <%# <form action="/home"  class="account_holder">
+          <button class="home-btn">Home</button>
+        </form> %>
+        <a href="/home" class="account_holder">
+          HOME
+        </a>
+        <%# <a href="/quotes/new"  class="account_holder"> %>
+        <a href="/quotes"  class="account_holder">
+         QUOTES
+        </a> 
+         <%# <a href="/images/new" class="account_holder"> %>
+         <a href="/images" class="account_holder">
+          IMAGES
+        </a> 
+         <%# <a href="/activities/new" class="account_holder"> %>
+         <a href="/activities" class="account_holder">
+          ACTIVITIES
+        </a> 
+      </div>
+      <div class="home">
+        <div class="user-info">
+          <span class="app">
+            <img src="<%=current_user.image_url%>" class="user_image account_holder">
+          </span>
+          <span id ="user-name" class="account_holder">
+            <%= current_user.name%>
+          </span>
+            
+          
+          <form action="/session" method="post" class="account_holder logout-btn">
+            <input type="hidden" name="_method" value="delete">
+            <button>  LOGOUT</button>
+            
+          </form>
+        </div>
       </div>
     </nav>
+  
     
   <%end%>
 </header>

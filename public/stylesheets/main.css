@@ -7,7 +7,7 @@ body {
   
 }
 header {
-  background-color: rgb(235, 139, 22);
+  /* background-color: rgb(235, 139, 22); */
   margin-bottom: 10px;
 }
 
@@ -25,15 +25,34 @@ header {
 
 nav {
   display:flex;
-  background-color: bisque;
+  /* background-color: bisque; */
+  border-bottom: 1px solid black;
+  margin-bottom: 30px;
 }
 .home {
-  margin-left:5% ; 
-  width: 30%;
+  margin-left:2% ; 
+  width: 47%;
 
 }
+.home img {
+  width: 50px;
+  height: 50px;
+}
+.home span {
+  font-family: cursive;
+}
+.home .user-info {
+  margin-right: 30%;
+}
+.home a {
+  text-decoration: none;
+  margin-left:15px;
+  margin-right:5px;
+  color: black;
+}
 button.home-btn {
-  margin-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .nav-menu {
@@ -41,8 +60,28 @@ button.home-btn {
   width: 60%;
 
 }
-.account_holder {
+.user-info {
+  width: 100%;
+  margin-left: 40%;
+  /* background-color: blueviolet; */
+}
+
+.user-info button{
+  background-color: rgb(180, 49, 110); /* Green */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin-left:25px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.account_holder  {
   display:inline-block;
+  /* margin-left: 5px; */
 }
 
 .content-resource {
@@ -117,9 +156,10 @@ button.home-btn {
 .user-intro #user-name {
   vertical-align: text-bottom;
 }
+
 .quote-div {
   width: 100%;
-  height: 20%;
+  /* height: 20%; */
   background-color: white; 
   padding: 0.5rem 0.5rem 2rem 0.5rem;
   /* border: 0.05rem solid grey; */
@@ -213,8 +253,28 @@ button.home-btn {
 .comment-Div {
   border-top: 0.01rem solid rgb(172, 170, 170);
   padding-top: 10px;
+  background-color: rgb(226, 222, 222);
+  padding-left: 10px;
+  padding-bottom: 10px;
+  width: 45%;
+  border-radius: 5px;
 }
-
+.comment-unit {
+  background-color: beige;
+  margin-bottom: 2px;
+  width: 90%;
+  border-radius: 5px;
+}
+.comment {
+  width:40%;
+  height: 20px;
+  margin-left: 10px;
+}
+.comment-input {
+  border:0;
+  padding: 7px;
+  border-radius: 5px;
+}
 .buttons {
   display: inline-block;
   height: 15px;
@@ -292,3 +352,129 @@ button.home-btn {
 .individual-image-content form {
   display: inline-block;
 }
+
+.welcome-div {
+  display:flex;
+  flex-wrap: wrap;
+  width:60%;
+  height: 200px;
+  /* background-color: aqua; */
+  /* color: red; */
+  /* border: 1px solid black; */
+  justify-content: center;
+}
+.welcome-div div {
+  /* display:flex;
+  flex-wrap: wrap; */
+  margin-left: 150px;
+  width: 80%;
+
+}
+.welcome-div img {
+  width: 100px;
+  height: 100px;
+}
+.app img {
+  margin-top: 10px;
+}
+
+.app p {
+  margin-top: 80px;
+  margin-left: 20px;
+  font-size: 2rem;
+  font-family: cursive;
+}
+.welcome-div title {
+  padding-top: 10px;
+  vertical-align: bottom;
+  margin-top: 10px;
+}
+.password {
+  margin-left: 93px;
+}
+
+.form-container {
+  display:flex;
+  flex-wrap: wrap;
+  width: 60%;
+  /* background-color: bisque; */
+}
+
+.menu {
+  width: 30%;
+  background-color: red;
+}
+
+.menu {
+  width: 30%;
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+
+.menu label {
+  display: block;
+  margin-left: 80px;
+  margin-bottom: 15px;
+}
+
+.menu input {
+  margin-bottom: 14px;
+}
+
+/* .form-activities {
+  
+} */
+
+.container-welcome {
+  
+  width: 80%;
+  height: 100%;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+/************ css for quotes *************************/
+.quotes-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width:60%;
+  /* background-color: blueviolet; */
+}
+
+.create-wrapper {
+  width: 35%;
+  background-color: white;
+  margin-left: 5px;
+  border-radius: 5px;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 0px;
+}
+.create-wrapper button {
+  background-color: rgb(180, 49, 110); /* Green */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 10px 0 5px 0;
+  border-radius: 5px;
+  width: 50px;
+}
+.post-quotes {
+  background-color: #dee0e4;
+  width: 90%;
+  height: 20%;
+  padding-left: 5px;
+  padding-top: 30px;
+}
+.post-quotes textarea {
+  margin-top: 15px;
+}
+/* *************************************************** */

@@ -63,3 +63,10 @@ create table images(
   created_at DATE
 );
 
+create table honours(
+  id SERIAL PRIMARY KEY,
+  silver_badge INTEGER,
+  golden_badge INTEGER,
+  reputation INTEGER,
+  user_id INTEGER
+);
