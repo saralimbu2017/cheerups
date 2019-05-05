@@ -458,12 +458,14 @@ button.home-btn {
 
 .create-wrapper {
   width: 35%;
+
   background-color: white;
   margin-left: 5px;
   border-radius: 5px;
   padding-top: 30px;
   padding-left: 10px;
   padding-right: 0px;
+  padding-bottom: 10px;
 }
 .create-wrapper button {
   background-color: rgb(180, 49, 110); /* Green */
@@ -481,9 +483,10 @@ button.home-btn {
 .post-quotes {
   background-color: #dee0e4;
   width: 90%;
-  height: 20%;
+  height: 40%;
   padding-left: 5px;
   padding-top: 30px;
+  border-radius: 5px;
 }
 .post-quotes textarea {
   margin-top: 15px;
@@ -517,4 +520,18 @@ button.home-btn {
 }
 .test {
   display: inline-block;
+}
+
+.pink_button {
+  background-color: rgb(180, 49, 110); /* Green */
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 10px 0 5px 0;
+  border-radius: 5px;
+  width: 50px;
 }

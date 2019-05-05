@@ -1,0 +1,8 @@
+<div class="container">
+  <form action="/quotes/<%= @quote.id%>" method="post">
+    <input type="hidden" name="_method" value="put">
+    
+    <input type="text" name="content" size="80" style=" padding:10px;border:0" value="<%=@quote.content %>">  <br>
+    <button class="pink_button ">POST</button>
+  </form>
+</div>

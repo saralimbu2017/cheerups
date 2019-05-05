@@ -6,10 +6,27 @@
     <%end%>
     <div class="quote-div" >
       <%user = User.find_by(id: quote.user_id)%>
-        <p class= 'user-intro'>
+      <div class="user-intro-wrapper">
+        <div class= 'user-intro'>
           <img src = "<%=user.image_url%>" class= "user_image">
-          <span id ="user-name"><%= user.name %></span>
-        </p> 
+          <span id ="user-name"><%= user.name %>
+              
+          </span> 
+          </div >
+          <div class="dropdown">
+            <span style="">...</span>
+            <div class="dropdown-content">
+              <form action="/quotes/<%= quote.id%>/edit" >
+                <button>Edit</button>
+              </form>
+              <form action="/quotes/<%= quote.id %>" method = "post">
+                <input type="hidden" name ="_method" value="delete">
+                <button>delete</button>
+              </form>
+            </div>
+          </div> 
+      </div>
+        
       <div class="quote">
         
         <%# <p> %>
@@ -54,7 +71,7 @@
           <form  action="/comments" method="post" >
             <input type = "hidden" name="quote_id" value ="<%= quote.id%>">
             <%# <button>Comment</button> %>
-            <input type = "text" name="content" value ="" size="65" class="comment-input">
+            <input type = "text" name="content" value ="" size="37" class="comment-input">
             <input type="submit" style="display:none">
           </form>
         </div>

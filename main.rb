@@ -40,7 +40,9 @@ after do
 end
 
 get '/' do
+
   erb :index
+ 
 end
 
 get '/activities' do
@@ -146,7 +148,7 @@ post '/session' do
     session[:user_id] = user.id  
     # redirect "/activities"
     # redirect "/quotes"
-    redirect 'home'
+    redirect '/home'
   else
     redirect '/'
   end
@@ -234,11 +236,25 @@ get '/quotes/:id' do
   erb :show
 end
 
+get '/quotes/:id/edit' do
+  @quote = Quote.find(params[:id])
+  erb :quote_edit
+end
+
+put '/quotes/:id' do
+  quote = Quote.find(params[:id])
+  quote.content = params[:content]
+  quote.user_id = current_user.id
+  quote.save
+
+  redirect '/quotes'
+end
+
 delete '/quotes/:id' do #dangerous
   @quote = Quote.find(params[:id])
   @quote.delete #dangerous so redirect
   # # "Deleted"
-  redirect '/activities' #so redirect to somewhere else
+  redirect '/quotes' #so redirect to somewhere else
 end
 
 post '/images/new' do

@@ -4,9 +4,9 @@
     <a href="/quotes">
       <div class="content-resource quotes-section" >
         <% @quotes.each do |quote| %>
-          <% @user = User.find_by(id: quote.user_id)%>
+          <% quote_creator = User.find_by(id: quote.user_id)%>
           <div class="content-item">
-            <p class="quote-span">"<%=quote.content%>" <br>--<%=@user.name%> </p>
+              <p class="quote-span">"<%=quote.content%>"--<%= quote_creator.name%> </p>
           </div>
         <%end%>
       </div> 
@@ -21,7 +21,7 @@
           <div class="content-activity">
 
             <p class="name">
-              <img src="<%= user.image_url%>" class="user_image">
+               <img src="<%= user.image_url%>" class="user_image">
               <%=activity.name%>
             </p>
             <%# <%=activity.description%> 
