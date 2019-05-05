@@ -1,14 +1,30 @@
 <div class="container">
-   <% @images.each do |image| %>
-     
-      <div class="wrapper-image">
-        
-        <a href="/images/<%= image.id%>">
+  <div class="images-list-wrapper">
+    
+    <div class="images-list">
+      <% @images.each do |image| %>
+      
+        <div class="wrapper-image">
           
-          <img src="<%= image.url %>">
-        </a>
-       
+          <a href="/images/<%= image.id%>">
+            
+            <img src="<%= image.url %>">
+          </a>
+          
+        </div>
+      <% end %>
+    </div>
+    <div class="image-create-wrapper">
+      <div class="upload-image">
+        <form action="/images" method="post">
+    
+          <span>Image Url</span>
+          <input type="text" name="url"> <br>
+          
+          <button class="pink_button">Post</button>
+        </form>
       </div>
-    <% end %>
-
+    </div>
+    
+  </div>
 </div>

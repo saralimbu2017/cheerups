@@ -1,18 +1,46 @@
 <div class="container">
   <div class="individual-image">
     <div class="individual-image-content">
+      <div class="image-dropdown  ">
+            <span class="">...</span>
+            <div class="dropdown-content">
+              
+              <form action="/images/<%= @image.id %>" method = "post">
+                <input type="hidden" name ="_method" value="delete">
+                <button>delete</button>
+              </form>
+            </div>
+          </div> 
       <img src="/<%=@image.url%>">
       
     </div>
     <div class="individual-image-content">
-      <form action="/images/<%= @image.id%>/edit" >
-        <button>Edit</button>
-      </form> 
-      <form action="/images/<%= @image.id %>" method = "post">
-        <input type="hidden" name ="_method" value="delete">
+      <%# <form action="/images//edit" > %>
+        <%# <button>Edit</button>
+      </form>  %>
+      <%# <form action="/images/" method = "post"> %>
+        <%# <input type="hidden" name ="_method" value="delete">
         <button>delete</button>
-      </form> 
+      </form>  %>
     </div>
   </div>
-
+  <div class="image-crud-wrapper">
+    <div class="comment-image">
+      <form action="/comments" method="post">
+        <%# <label for="">Content</label> %>
+        <input type="hidden" name="image_id"  value="<%= @image.id%>"  >
+        <input type="text" name="content"  placeholder="Write a comment" size="50" class="image-comment-input" value="" > 
+        <input type="submit" style="display:none" > 
+      </form>
+      </div>
+     
+    <% @comments = Comment.where(image_id: @image.id).order(:created_at => :desc)%>
+    <% @comments.each do |comment| %> 
+       <%commentator = User.find_by(id: comment.user_id)%>
+       <div class="comment-unit"> 
+        <img src = "<%=commentator.image_url%>" class= "commentator_image"> 
+          <%= comment.content%>
+        </div>
+    <%end%>
+  </div>
 </div>

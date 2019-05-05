@@ -1,33 +1,21 @@
+<div class="activities-container">
+  <% @activities.each do |activity| %>
+    <% user = User.find_by(id: activity.user_id)%> 
+    <div class="activity-div" >
+      <p>
+         <img src="<%= user.image_url%>" class="user_image">
+        <a href="/activities/<%= activity.id%>"><%= activity.name %></a>
+      </p>
 
-<% @activities.each do |activity| %>
-<div class="activity-div" >
-  <p>
-    <a href="/activities/<%= activity.id%>"><%= activity.name %></a>
-  </p>
-  <p>
-    <%= activity.description %>
-    <form action="/likes/<%= activity.id%>" method="post">
-      <input type="hidden" name="_method" value="put">
-      <input type="hidden" name="like" value="1">
-      <button>Like</button> 
-    </form> 
-  </p>
-  <button class = "btn-comment" > comment </button>
-  <div class="comment-Div" > 
-    <%# :created_at => :desc %>
-    <% @comments = Comment.where(user_id: session[:user_id], activity_id: activity.id).order(:created_at => :desc).limit(3)%>
-    <% @comments.each do |comment| %> 
-      <p> <%=comment.content%> </p>
-    <%end%>
-    <form  action="/comments" method="post" >
-      <input type = "text" name="comment" value ="">
-      <input type = "hidden" name="activity_id" value ="<%= activity.id%>">
-      <%# <button>Comment</button> %>
-      <input type="submit" style="display:none"/>
-    </form>
-  </div>
+      <p>
+        
+        <%= activity.description %>
+      
+      </p>
  
+      
+    
+    </div>
+  <% end %>
+
 </div>
-<% end %>
-
-

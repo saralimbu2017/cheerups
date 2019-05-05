@@ -198,16 +198,22 @@ post '/comments' do
     comment.user_id = session[:user_id]
     if params[:activity_id] 
       comment.activity_id = params[:activity_id]
+      comment.save
+      redirect "/activities"
     end
     if params[:quote_id]
       comment.quote_id = params[:quote_id]
+      comment.save
+      redirect "/quotes"
     end
     if params[:image_id]
       comment.image_id = params[:image_id]
+      comment.save
+      redirect "/images/#{params[:image_id]}"
     end
      
-    comment.save
-    redirect "/activities"
+    
+    
   # end
 end
 

@@ -315,30 +315,32 @@ button.home-btn {
 }
 
 .wrapper-image {
-  width: 25%;
-  height: 200px;
-  background-color: white;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  width: 30%;
+  height: 220px;
+  background-color: rgb(41, 40, 6);
+  /* margin-right: 10px; */
+  margin: 5px;
   border-radius: 5px;
+  padding-bottom: 5px;
+  /* padding-bottom: 10px; */
 }
 
 .wrapper-image img {
   width: 97%;
-  height: 190px;
+  height: 200px;
   /* width:97%;
   height:95%; */
   padding-left: 5px;
-  margin-top:5px;
+  margin-top:10px;
   margin-bottom:5px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .individual-image {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  width: 40%;
+  width: 55%;
   height: 40%;
   background-color: white;
   justify-content: center;
@@ -408,6 +410,7 @@ button.home-btn {
   display:flex;
   flex-wrap: wrap;
   width: 60%;
+
   /* background-color: bisque; */
 }
 
@@ -534,4 +537,113 @@ button.home-btn {
   margin: 10px 0 5px 0;
   border-radius: 5px;
   width: 50px;
+}
+
+/***IMages****/
+.image-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  width:60%;
+  background-color: blueviolet;
+}
+
+.image-crud-wrapper {
+  width: 35%;
+
+  background-color: white;
+  margin-left: 5px;
+  border-radius: 5px;
+  padding-top: 30px;
+  padding-left: 10px;
+  padding-right: 0px;
+  padding-bottom: 10px;
+}
+.comment-image form {
+  display: block;
+  margin-bottom: 10px;
+}
+.image-comment-input  {
+  border: 1px solid grey;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+/* .image-dropdown  {
+  display: block;
+  width: 100px;
+  /* padding-left: 130px; */
+  
+  /* background-color: aqua; */
+
+.image-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  padding-left: 420px;
+  /* background-color: blue; */
+}
+
+
+.image-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.image-dropdown button {
+ border:0;
+}
+
+.images-list-wrapper {
+  display:flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.images-list {
+  display:flex;
+  flex-wrap: wrap;
+  width: 75%;
+  justify-content: center;
+  background-color: white;
+}
+
+.image-create-wrapper {
+  display:flex;
+  /* flex-wrap: wrap; */
+  width: 20%;
+  /* height: 30px; */
+  /* justify-content: center; */
+  margin-left: 5px;
+  background-color: white;
+  padding:10px;
+  border-radius: 5px;
+}
+
+.upload-image {
+  height: 300px;
+  background-color: #dee0e4;
+  padding-top: 30px;
+  border-radius: 5px;
+  margin-top:10px;
+  padding-left: 5px;
+}
+
+.activities-container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.activity-div {
+  width: 30%;
+  background-color: white;
+  margin:5px;
+  border-radius: 5px;
+  padding: 10px;
+}
+.individual-activity-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  background-color: white;
+  
 }

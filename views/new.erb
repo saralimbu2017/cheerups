@@ -1,44 +1,54 @@
 
-<div class="form-activities">
-<form action="/activities" method="post">
-  
-  <label for="">Name</label>
-  <input type="text" name="name"> <br>
-  <label for="">Description</label>
-  <textarea name="description" id="" cols="30" rows="10"></textarea><br>
-  <label for="">Image</label>
-  <input type="text" name="image_url"><br>
-  <label for="">Image</label>
-  <select name = "category"> Category
-    <option value="1">Charity</option>
-    <option value="2">Health</option>
-    <option value="3">Cause</option>
-    <option value="4">Entertainment</option>
-  </select><br>
-  
-  <label for="">House / Street Number</label>
-  <input type="text" name="house_number"><br>
-  <label for="">Street Name</label>
-  <input type="text" name="street_name"><br>
-  <label for="">Suburb</label>
-  <input type="text" name="suburb"><br>
-  <label for="">State</label>
-  <input type="text" name="state"><br>
-  <label for="">Country</label>
-  <input type="text" name="country"><br>
-  <label for="">Date</label>
-  <input type="text" name="date"><br>
-  <label for="">Time</label>
-  <input type="text" name="time">(HH:MM:SS)<br>
-  <button>Post</button>
-</form>
+<div class= container>
+  <div class="form-container">
+    
+    <div class="menu left">
+      <label for="">Name</label>
+      <label for="">Description</label>
+      <label for="">Image</label>
+      <label for="">Image</label>
+      <label for="">House / Street Number</label>
+      <label for="">Street Name</label>
+      <label for="">Suburb</label>
+      <label for="">State</label>
+      <label for="">Country</label>
+      <label for="">Date</label>
+      <label for="">Time</label>
+    </div>
+    <div class="menu">
+      <form action="/activities" method="post">
+        
+        
+        <input type="text" name="name"> <br>
+      
+        <textarea name="description" id="" cols="30" rows="10"></textarea><br>
+        
+        <input type="text" name="image_url"><br>
+        
+        <select name = "category"> Category
+          <option value="1">Charity</option>
+          <option value="2">Health</option>
+          <option value="3">Cause</option>
+          <option value="4">Entertainment</option>
+        </select><br>
+        
+        
+        <input type="text" name="house_number"><br>
+        
+        <input type="text" name="street_name"><br>
+        
+        <input type="text" name="suburb"><br>
+        
+        <input type="text" name="state"><br>
+        
+        <input type="text" name="country"><br>
+        
+        <input type="text" name="date"><br>
+        
+        <input type="text" name="time">(HH:MM:SS)<br>
+        <button>Post</button>
+      </form>
+    </div>
 
-<% @activities.each do |activity| %>
-  <p>
-    <a href="/activities/<%= activity.id%>"><%= activity.name %></a>
-  </p>
-  <p>
-    <%= activity.description %>
-  </p>
-<% end %>
+  </div>
 </div>
