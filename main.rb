@@ -53,7 +53,7 @@ get '/activities' do
 end
 
 post '/activities/new' do
-  @activities = Activity.where(user_id: session[:user_id])
+  # @activities = Activity.where(user_id: session[:user_id])
 
   erb :new
 end
@@ -264,7 +264,7 @@ delete '/quotes/:id' do #dangerous
 end
 
 post '/images/new' do
-  @images = Image.where(user_id: session[:user_id])
+  # @images = Image.where(user_id: session[:user_id])
 
   erb :image_new
 end

@@ -1,4 +1,16 @@
 <div class = "container">
+   <div class="activities-create">
+    <%# <img src="images/plus.png"> %>
+     <div class="dropdown-new-activity">
+        <img src="images/plus.png">
+        <div class="dropdown-new-activity-content">
+          <form action="/quotes/new" method="post" >
+            <button>Post Quotes</button>
+          </form>
+          
+        </div>
+      </div> 
+  </div>
   <div class="quotes-wrapper">
   <% @quotes.each do |quote| %>
     <%if Like.where( quote_id: quote.id).size != 0  %>
@@ -79,15 +91,6 @@
     </div>
   <% end %>
   </div>
-  <div class="create-wrapper">
-    <div class="post-quotes">
-      <span >Create Quotes</span>
-      <form action="/quotes" method="post">
-        <%# <label for="">Content</label> %>
-        <textarea type="text" name="content" row="90" cols="48" placeholder="A witty quote!"> </textarea> <br>
-        <button>POST</button>
-      </form>
-    </div>
-  </div>
+  
 </div>
   

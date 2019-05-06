@@ -1,21 +1,35 @@
-<div class="activities-container">
-  <% @activities.each do |activity| %>
-    <% user = User.find_by(id: activity.user_id)%> 
-    <div class="activity-div" >
-      <p>
-         <img src="<%= user.image_url%>" class="user_image">
-        <a href="/activities/<%= activity.id%>"><%= activity.name %></a>
-      </p>
 
-      <p>
-        
-        <%= activity.description %>
-      
-      </p>
- 
-      
+<div class="container">
+  <div class="activities-create">
+     <div class="dropdown-new-activity">
+        <img src="images/plus.png">
+        <div class="dropdown-new-activity-content">
+          <form action="/activities/new" method="post" >
+            <button>Post Activity</button>
+          </form>
+          
+        </div>
+      </div> 
+  </div>
+  <div class="activities-container">
     
-    </div>
-  <% end %>
+    <% @activities.each do |activity| %>
+      <% user = User.find_by(id: activity.user_id)%> 
+      
+        <div class="activity-div" >
+          <a href="/activities/<%= activity.id %>">
+            <p>
+              <img src="<%= user.image_url%>" class="user_image">
+              <%= activity.name %>
+            </p>
+            <p>
+              <%= activity.description %>
+            </p>
+          </a>
+        </div>
+    
+    <% end %>
+   
 
+  </div>
 </div>

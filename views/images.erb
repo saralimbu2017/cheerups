@@ -1,4 +1,16 @@
 <div class="container">
+   <div class="activities-create">
+    <%# <img src="images/plus.png"> %>
+     <div class="dropdown-new-activity">
+        <img src="images/plus.png">
+        <div class="dropdown-new-activity-content">
+          <form action="/images/new" method="post" >
+            <button>Post Image</button>
+          </form>
+          
+        </div>
+      </div> 
+  </div>
   <div class="images-list-wrapper">
     
     <div class="images-list">
@@ -14,7 +26,7 @@
         </div>
       <% end %>
     </div>
-    <div class="image-create-wrapper">
+    <%# <div class="image-create-wrapper">
       <div class="upload-image">
         <form action="/images" method="post">
     
@@ -24,7 +36,7 @@
           <button class="pink_button">Post</button>
         </form>
       </div>
-    </div>
+    </div> %>
     
   </div>
 </div>

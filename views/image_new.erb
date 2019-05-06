@@ -1,16 +1,12 @@
-<form action="/images" method="post">
-  
-  <label for="">Image Url</label>
-  <input type="text" name="url"> <br>
-  
-  <button>Post</button>
-</form>
+<div class ="container">
+  <div class="form-container">
+    <form action="/images" method="post">
+      
+      <label for="">Image Url</label>
+      <input type="text" placeholder="Post an image..." name="url"> <br>
+      
+      <button class="pink_button">Post</button>
+    </form>
+  </div>
+</div>
 
-<% @images.each do |image| %>
-  <p>
-    <a href="/images/<%= image.id%>"><%= image.id %></a>
-  </p>
-  <p>
-    <%= image.url %>
-  </p>
-<% end %>

@@ -1,14 +1,13 @@
-<form action="/quotes" method="post">
-  
-  <%# <label for="">Content</label> %>
-  <textarea type="text" name="content" row="40" cols="50"> </textarea> <br>
-  
-  <button>Post</button>
-</form>
 
-<% @quotes.each do |quote| %>
+<div class ="container">
+  <div class="form-container">
+    <form action="/quotes" method="post">
+      
+      <%# <label for="">Content</label> %>
+      <textarea   placeholder="Post a Quote..."  name="content" row="40" cols="50"></textarea> <br>
+      
+      <button class="pink_button">Post</button>
+    </form>
+ </div>
+</div>
 
-  <p>
-    <%= quote.content %>
-  </p>
-<% end %>

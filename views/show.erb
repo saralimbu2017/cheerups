@@ -1,14 +1,23 @@
   
   <div class="individual-activity-container">
-    <p><%= @activity.name %></p>
+    <p>
+      <%= @activity.name %>
+      <div class="dropdown-activity">
+        <span style="">...</span>
+          <div class="dropdown-activity-content">
+            <form action="/activities/<%= @activity.id%>/edit" >
+              <button>Edit</button>
+            </form>
+            <form action="/activities/<%= @activity.id %>" method = "post">
+              <input type="hidden" name ="_method" value="delete">
+              <button>delete</button>
+            </form>
+           </div>
+      </div> 
+    </p>
     <img src="<%= @activity.image_url%>"> 
     <p><%= @activity.description %></p>
-    <p><a href="/activities/<%= @activity.id%>/edit"> Edit</p>
-
-    <form action="/activities/<%= @activity.id %>" method = "post">
-    <input type="hidden" name ="_method" value="delete">
-    <button>delete</button>
-    </form> 
+   
   </div>
 
   

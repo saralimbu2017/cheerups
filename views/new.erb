@@ -1,12 +1,12 @@
 
 <div class= container>
-  <div class="form-container">
+  <div class="form-activity-container" >
     
     <div class="menu left">
       <label for="">Name</label>
-      <label for="">Description</label>
+      <label for="" class="description">Description</label>
       <label for="">Image</label>
-      <label for="">Image</label>
+      <label for="">Charity</label>
       <label for="">House / Street Number</label>
       <label for="">Street Name</label>
       <label for="">Suburb</label>
@@ -16,39 +16,45 @@
       <label for="">Time</label>
     </div>
     <div class="menu">
+
+
       <form action="/activities" method="post">
+      <%# <input type="hidden" name="_method" value="put"> %>
+      <%#   
+        <form action="/activities" method="post"> %>
         
         
-        <input type="text" name="name"> <br>
+        <input type="text" placeholder="Name" name="name" value=""> <br>
       
-        <textarea name="description" id="" cols="30" rows="10"></textarea><br>
+        <textarea name="description" placeholder="Description" id="" cols="30" rows="10" value=""></textarea><br>
         
-        <input type="text" name="image_url"><br>
+        <input type="text" placeholder="Image Url" name="image_url"><br>
         
         <select name = "category"> Category
           <option value="1">Charity</option>
           <option value="2">Health</option>
           <option value="3">Cause</option>
           <option value="4">Entertainment</option>
-        </select><br>
+        </select><br><br>
         
         
-        <input type="text" name="house_number"><br>
+        <input type="text" name="house_number" placeholder="House No" ><br>
         
-        <input type="text" name="street_name"><br>
+        <input type="text" name="street_name"  placeholder="Street No"><br>
         
-        <input type="text" name="suburb"><br>
+        <input type="text" name="suburb" placeholder="Suburb"><br>
         
-        <input type="text" name="state"><br>
+        <input type="text" name="state" placeholder="State" ><br>
         
-        <input type="text" name="country"><br>
+        <input type="text" name="country" placeholder="Country" ><br>
         
-        <input type="text" name="date"><br>
+        <input type="text" name="date" value="" placeholder="Date"><br>
         
-        <input type="text" name="time">(HH:MM:SS)<br>
-        <button>Post</button>
+        <input type="text" name="time" value="" placeholder="Time">(HH:MM:SS)<br>
+        <button class="pink_button ">UPDATE</button>
       </form>
     </div>
 
   </div>
 </div>
+
