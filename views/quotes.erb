@@ -66,15 +66,12 @@
         <input type="image" src="images/comment.svg" alt="comment" class="buttons">
         <div class="comment-Div" > 
           <%# :created_at => :desc %>
-          <% @comments = Comment.where(user_id: session[:user_id], quote_id: quote.id).order(:created_at => :desc).limit(3)%>
+   
+          <% @comments = Comment.where( quote_id: quote.id).order(:created_at => :desc).limit(3)%>
           <% @comments.each do |comment| %> 
             <%commentator = User.find_by(id: comment.user_id)%>
             <div class="comment-unit"> 
               <img src = "<%=commentator.image_url%>" class= "commentator_image"> 
-              <%# <span class="commentator_name"> %>
-                 <%# <%=commentator.name.split[0]%>   
-                <%# <%=commentator.name%>  
-              <%# </span> %>
               <span class="comment">
                  <%=comment.content%> 
               </span>
