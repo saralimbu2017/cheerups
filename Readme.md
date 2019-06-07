@@ -1,7 +1,7 @@
 Project Title
 CheerUps!
 
-Description
+Description  ⭐⭐ (Project still on progress, refactoring ....)  ⭐⭐
 This app  has been developed with a purpose of making people happy. It allows users to post quotes, activitites and images. The other users can like and comment on the posts made. Also, the user with high number for likes get star and reputation is increased. However, this feature is on futher development.
 
 Prerequisites
