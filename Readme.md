@@ -18,6 +18,9 @@
   <h1>CHEERUPS!</h1>
 
   <h3>ABOUT THE PROJECT</h3>
+  <a href="https://github.com/saralimbu2017/cheerups">
+    <img src="https://user-images.githubusercontent.com/28947316/137652510-98bcbfb6-3f6a-4d95-ac8d-b45c4d145d73.png" alt="Logo" width="300px" height="200px" >
+  </a>
 </div>
 <div>
   <p text-align="justify">
