@@ -1,10 +1,6 @@
 <div id="top"></div>
 <!--
-*** Thanks for checking out README.md. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again!
+cheerups is a sinatra web app Ruby framework(http://sinatrarb.com/).
 -->
 
 
@@ -14,6 +10,7 @@
 *** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 <div align="center">
   <h1>CHEERUPS!</h1>
 
